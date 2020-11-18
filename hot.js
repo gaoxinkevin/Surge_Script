@@ -2,10 +2,6 @@
 
 【热门监控】@evilbutcher
 
-【仓库地址】https://github.com/evilbutcher/Quantumult_X/tree/master（欢迎star🌟）
-
-【BoxJs】https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/evilbutcher.boxjs.json
-
 【致谢】
 本脚本使用了Chavy的Env.js，感谢！
 @南叔、@mini计划-图标聚合、@zZPiglet、@xinian、@api-evangelist-rss2json
@@ -58,22 +54,22 @@ const $ = new Env("热门监控");
 const base64 = new Base64Code();
 
 //⚠️本地自定参数修改位置⚠️
-var keyword = ["天津"]; //👈本地脚本关键词在这里设置。
+var keyword = ["天津","北京","雪","高昕","明星大侦探","苹果"]; //👈本地脚本关键词在这里设置。
 //⚠️👆以上用英文逗号、英文双引号⚠️
 $.weibo = true; //是否开启相应榜单监控
-$.wbnum = 6; //自定微博热搜数量
+$.wbnum = 10; //自定微博热搜数量
 $.zhihu = false; //是否开启相应榜单监控
 $.zhnum = 6; //自定知乎热榜数量
 $.bilibili = false; //是否开启相应榜单监控
 $.blnum = 6; //自定B站榜单数量
 $.splitpushwb = true; //是否分开推送微博榜单
-$.pushnewwb = false; //是否忽略关键词推送微博最新内容
+$.pushnewwb = true; //是否忽略关键词推送微博最新内容
 $.splitpushzh = false; //是否分开推送知乎榜单
 $.pushnewzh = false; //是否忽略关键词推送知乎最新内容
 $.splitpushbl = false; //是否分开推送B站榜单
 $.pushnewbl = false; //是否忽略关键词推送B站最新内容
-$.attachurl = false; //通知是否附带跳转链接
-$.refreshtime = 6; //重复内容默认在6小时内不再通知，之后清空，可自行修改
+$.attachurl = true; //通知是否附带跳转链接
+$.refreshtime = 3; //重复内容默认在6小时内不再通知，之后清空，可自行修改
 $.rid = 0; //更改B站监控榜单
 $.time = 2; //榜单获取时限，单位秒
 //⚠️本地自定参数修改位置⚠️
@@ -339,7 +335,7 @@ function gethotsearch() {
             var con = JSON.stringify(content);
             var newcon = con.slice(2, -12);
             var postcon = newcon.replace("q%3D", "q=");
-            var url = "sinaweibo://searchall?" + postcon;
+            var url = "vvebo://search?" + postcon;
             itemswb.push(item);
             urlswb.push(url);
           }
